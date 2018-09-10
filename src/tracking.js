@@ -55,6 +55,9 @@
    * @param {object} opt_options Optional configuration to the tracker.
    */
   tracking.initUserMedia_ = function(element, opt_options) {
+    element.oncanplay = function() {
+      element.play();
+    };
     window.navigator.mediaDevices.getUserMedia({
       video: true,
       audio: (opt_options && opt_options.audio) ? true : false,
